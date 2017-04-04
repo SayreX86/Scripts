@@ -8,7 +8,7 @@ if (!(Test-Path $BackupFolderPath)) {
     New-Item $BackupFolderPath -ItemType Directory -Force -Verbose
 }
 
-if (!(Get-SmbShare $DatabaseBackupShareName)) {
+if (!(Get-SmbShare $DatabaseBackupShareName -ErrorAction SilentlyContinue)) {
 New-SmbShare -Name $DatabaseBackupShareName -Path $BackupFolderPath `
                                             -ConcurrentUserLimit "10" `
                                             -FullAccess 'NT AUTHORITY\SYSTEM' `
