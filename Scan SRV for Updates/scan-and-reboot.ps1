@@ -5,8 +5,8 @@ $servers_dontneedreboot=@()
 $servers_notavail=@()
 $servers_rebooted=@()
 $servers_witherror=@()
-$From = "rksmon@rks-dev.com"
-$SMTPServer = "10.0.3.37"
+$From = "mail"
+$SMTPServer = "ip"
 $SMTPPort = "25"
 
 
@@ -89,11 +89,10 @@ $need | foreach {
 #$need
 #Write-host "all selected servers"
 #$serves
-Send-MailMessage -From $From -to 'support@rks-dev.com' -Subject "$(Get-Date -format 'u') Servers with error during process" -Body($servers_witherror | ft | Out-String) -SmtpServer $SMTPServer -port $SMTPPort 
-Send-MailMessage -From $From -to 'admin@rks-dev.com' -Subject "$(Get-Date -format 'u') Unavailable servers" -Body($servers_notavail | ft | Out-String) -SmtpServer $SMTPServer -port $SMTPPort 
-Send-MailMessage -From $From -to 'admin@rks-dev.com' -Subject "$(Get-Date -format 'u') Rebooted servers" -Body($servers_rebooted | ft | Out-String) -SmtpServer $SMTPServer -port $SMTPPort 
-
-Send-MailMessage -From $From -to 'rs@it-partner.ru' -Subject "$(Get-Date -format 'u') Servers that do not require a reboot" -Body($servers_dontneedreboot | ft | Out-String) -SmtpServer $SMTPServer
-Send-MailMessage -From $From -to 'rs@it-partner.ru' -Subject "$(Get-Date -format 'u') Servers with error during process" -Body($servers_witherror | ft | Out-String) -SmtpServer $SMTPServer 
-Send-MailMessage -From $From -to 'rs@it-partner.ru' -Subject "$(Get-Date -format 'u') Unavailable servers" -Body($servers_notavail | ft | Out-String) -SmtpServer $SMTPServer 
-Send-MailMessage -From $From -to 'rs@it-partner.ru' -Subject "$(Get-Date -format 'u') Rebooted servers" -Body($servers_rebooted | ft | Out-String) -SmtpServer $SMTPServer 
+Send-MailMessage -From $From -to 'mail' -Subject "$(Get-Date -format 'u') Servers with error during process" -Body($servers_witherror | ft | Out-String) -SmtpServer $SMTPServer -port $SMTPPort 
+Send-MailMessage -From $From -to 'mail' -Subject "$(Get-Date -format 'u') Unavailable servers" -Body($servers_notavail | ft | Out-String) -SmtpServer $SMTPServer -port $SMTPPort 
+Send-MailMessage -From $From -to 'mail' -Subject "$(Get-Date -format 'u') Rebooted servers" -Body($servers_rebooted | ft | Out-String) -SmtpServer $SMTPServer -port $SMTPPort 
+Send-MailMessage -From $From -to 'mail' -Subject "$(Get-Date -format 'u') Servers that do not require a reboot" -Body($servers_dontneedreboot | ft | Out-String) -SmtpServer $SMTPServer
+Send-MailMessage -From $From -to 'mail' -Subject "$(Get-Date -format 'u') Servers with error during process" -Body($servers_witherror | ft | Out-String) -SmtpServer $SMTPServer 
+Send-MailMessage -From $From -to 'mail' -Subject "$(Get-Date -format 'u') Unavailable servers" -Body($servers_notavail | ft | Out-String) -SmtpServer $SMTPServer 
+Send-MailMessage -From $From -to 'mail' -Subject "$(Get-Date -format 'u') Rebooted servers" -Body($servers_rebooted | ft | Out-String) -SmtpServer $SMTPServer 

@@ -1,13 +1,13 @@
 # Импортируем модуль Active Directory
 import-module ActiveDirectory
 # Указываем в каком подразделении проверять пользователей
-$MSK = "OU=Пользователи Москвы,OU=Москва,OU=РКС,DC=rks-dev,DC=com"
+$MSK = "OU="
 $OFS = "<br>"
-$ASF = "OU=Пользователи Астрахани,OU=Астрахань,OU=РКС,DC=rks-dev,DC=com"
-$KRR = "OU=Пользователи Краснодара,OU=Краснодар,OU=РКС,DC=rks-dev,DC=com"
-$TVR = "OU=Пользователи Твери,OU=Тверь,OU=РКС,DC=rks-dev,DC=com"
-$PZZ = "OU=Пользователи Пензы,OU=Пенза,OU=РКС,DC=rks-dev,DC=com"
-$HMA = "OU=Пользователи Ханты,OU=Ханты,OU=РКС,DC=rks-dev,DC=com"
+$ASF = "OU="
+$KRR = "OU="
+$TVR = "OU="
+$PZZ = "OU="
+$HMA = "OU="
 $PASF = echo Пользователи Астрахани: $OFS
 $PMSK = echo Пользователи Москвы: $OFS
 $PKRR = echo Пользователи Краснодара: $OFS
@@ -89,5 +89,5 @@ $BODY = "
 # Отправляем сообщения
 #Send-MailMessage -From admin-notification@domain.local -To admin@domain.local -Encoding ([System.Text.Encoding]::UTF8) -Subject "Аудит незаполненных полей в Active Directory " -Body $body2$body3$Body -SmtpServer YourMailServer.domain.local
 #$secpasswd = ConvertTo-SecureString “Maks2012” -AsPlainText -Force
-#$mycreds = New-Object System.Management.Automation.PSCredential (“azarodysh@rks-dev.com”, $secpasswd)
-Send-MailMessage -From "adaudit@rks-dev.com" -To "support@rks-dev.com" -Encoding ([System.Text.Encoding]:: UTF8) -SmtpServer "10.0.3.37"  -Subject "Аудит незаполненных полей в Active Directory " -Body $BODY -BodyAsHtml
+#$mycreds = New-Object System.Management.Automation.PSCredential (“mail”, $secpasswd)
+Send-MailMessage -From "mail" -To "mail" -Encoding ([System.Text.Encoding]:: UTF8) -SmtpServer "IP"  -Subject "Аудит незаполненных полей в Active Directory " -Body $BODY -BodyAsHtml
