@@ -24,6 +24,7 @@ $permissions = @{
      'BUILTIN\Administrators' = 'Change';
      'NT AUTHORITY\Authenticated Users' = 'Read';
      }
+
 $permissions.GetEnumerator() | ForEach-Object {
     Grant-SmbShareAccess -Name $DatabaseBackupShareName -AccountName $_.Key -AccessRight $_.Value -Force -Verbose
     }
